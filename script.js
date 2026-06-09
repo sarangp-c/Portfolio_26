@@ -73,3 +73,45 @@ const observer = new IntersectionObserver((entries) => {
 
 // Tell the observer to watch each reveal element.
 revealItems.forEach((item) => observer.observe(item));
+
+
+/* ---------- 4. PROJECT FILTER ---------- */
+
+function filterProjects(category) {
+
+  const cards =
+    document.querySelectorAll('.project-card');
+
+  const buttons =
+    document.querySelectorAll('.filter-btn');
+
+  let visibleCount = 0;
+
+  cards.forEach(card => {
+
+    if (
+      category === 'all' ||
+      card.classList.contains(category)
+    ) {
+
+      card.classList.remove('hidden');
+      visibleCount++;
+
+    } else {
+
+      card.classList.add('hidden');
+
+    }
+
+  });
+
+  document.getElementById('project-count')
+    .textContent =
+    `Showing ${visibleCount} Project${visibleCount !== 1 ? 's' : ''}`;
+
+  buttons.forEach(btn =>
+    btn.classList.remove('active')
+  );
+
+  event.target.classList.add('active');
+}

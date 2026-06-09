@@ -464,3 +464,51 @@ ul {
     width: 100%;
   }
 }
+
+
+/* Project Filters */
+
+.project-filters {
+  display: flex;
+  gap: var(--s12);
+  flex-wrap: wrap;
+  margin-bottom: var(--s16);
+}
+
+.filter-btn {
+  padding: 10px 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-pill);
+  background: var(--card);
+  color: var(--ink);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--primary);
+  color: white;
+}
+
+.project-count {
+  margin-bottom: var(--s24);
+  color: var(--ink-muted);
+  font-weight: 500;
+}
+
+/* Smooth Filter Animation */
+
+.project-card {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.4s ease,
+              transform 0.4s ease;
+}
+
+.project-card.hidden {
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
+  position: absolute;
+}
