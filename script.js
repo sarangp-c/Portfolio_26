@@ -123,7 +123,7 @@ function filterProjects(category) {
 ========================================== */
 
 async function loadProjects() {
-
+    console.log("GitHub Projects Loading...");
     try {
 
         const response =
