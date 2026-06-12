@@ -115,3 +115,78 @@ function filterProjects(category) {
 
   event.target.classList.add('active');
 }
+
+
+
+/* ==========================================
+   GitHub Projects Loader
+========================================== */
+
+async function loadProjects() {
+
+    try {
+
+        const response =
+            await fetch("data/projects.json");
+
+        const projects =
+            await response.json();
+
+        const container =
+            document.getElementById(
+                "projects-container"
+            );
+
+        if (!container) return;
+
+        container.innerHTML = "";
+
+        projects.forEach(project => {
+
+            container.innerHTML += `
+
+                <article class="card reveal">
+
+                    <span class="card-tag">
+                        ${project.language || "Project"}
+                    </span>
+
+                    <h3 class="card-title">
+                        ${project.name}
+                    </h3>
+
+                    <p class="card-desc">
+                        ${project.description || "No description available"}
+                    </p>
+
+                    <div class="card-meta">
+
+                        <span class="chip">
+                            ⭐ ${project.stars}
+                        </span>
+
+                    </div>
+
+                    <a href="${project.url}"
+                       target="_blank"
+                       class="card-link">
+
+                        View Repository ↗
+
+                    </a>
+
+                </article>
+
+            `;
+        });
+
+    } catch (error) {
+
+        console.error(
+            "Error loading projects:",
+            error
+        );
+    }
+}
+
+loadProjects();

@@ -570,3 +570,50 @@ ul {
   color: var(--primary);
   font-weight: 600;
 }
+
+#projects-container {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(300px, 1fr));
+
+    gap: 20px;
+}
+
+.project-card {
+
+    border: 1px solid #ddd;
+
+    padding: 20px;
+
+    border-radius: 12px;
+
+    transition: 0.3s;
+}
+
+.project-card:hover {
+
+    transform: translateY(-5px);
+}
+
+/* ==========================================
+   GitHub Projects Section
+========================================== */
+
+#github-projects .section-subtitle {
+
+    color: var(--text-muted);
+
+    margin-bottom: 2rem;
+}
+
+#projects-container {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(300px, 1fr));
+
+    gap: 1.5rem;
+}
